@@ -14,7 +14,7 @@ class Model():
         self.iterations_count = iterations_count
 
     def count_cells(self, matrix_size: int, empty_percent: int):
-        self.empty_count = matrix_size // (1 / empty_percent)
+        self.empty_count = matrix_size // empty_percent
         self.red_count = (matrix_size - self.empty_count) // 2
         self.blue_count = (matrix_size - self.empty_count) // 2
         if ((matrix_size - self.empty_count) % 2 != 0):
@@ -74,7 +74,7 @@ class Model():
             for j in range(self.size):
                 if (self.box[i][j] != 0):
                     if (not self.is_cell_happy(i, j)):
-                        self.not_happy = np.concatenate((self.not_happy, np.array([i, j])), axis=0)
+                        self.not_happy = np.concatenate((self.not_happy, np.array([[i, j]])), axis=0)
                 else:
                     self.empty = np.concatenate((self.empty, np.array([[i, j]])), axis=0)
 
